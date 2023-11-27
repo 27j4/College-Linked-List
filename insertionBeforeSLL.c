@@ -12,21 +12,11 @@ void print(struct node * start){
     }
     printf("\n");
 }
-// Method 1
-void insertAthead(struct node **head, int data){
-    struct node * ptr =malloc(sizeof(struct node));
-    ptr->data = data;
-    ptr->next=*head;
-    *head=ptr;
-}
-
-// Method 2
-struct node * insertAtFirst(struct node *head, int data){
-    struct node * ptr = (struct node *) malloc(sizeof(struct node));
-    ptr->data = data;
- 
-    ptr->next = head;
-    return ptr; 
+void insertAthead(){
+    struct node * ptr = (struct node*)malloc(sizeof(struct node));
+    scanf("%d",&ptr->data);
+    ptr->next=head;
+    head = ptr;
 }
 int main()
 {
@@ -48,17 +38,7 @@ int main()
     }
     while(choice);
     print(head);
-    int data;
-    scanf("%d",&data);
-    insertAthead(&head,data);
-
-
-
-    // insertAtFirst
-    // Method 2
-    // insertAtFirst(head);
-
-
+    insertAthead();
     print(head);
     return 0 ;
 }
